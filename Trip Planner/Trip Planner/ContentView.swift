@@ -6,40 +6,94 @@
 //
 
 import SwiftUI
+import SwiftData
+
 
 struct ContentView: View {
-    @State var title: String = ""
+    @Environment(\.modelContext) var context
+    @State var showSheet: Bool = false
+    @Query private var trips: [TripData]
+    
     var body: some View {
-        VStack{
-            Text("Trip Planner")
-                .position(CGPoint(x: 200.0, y: 40.0))
-                .font(.system(size: 50, weight: .semibold, design: .serif))
-                .foregroundColor(.pink)
-                
-            Text(title)
-            Button("Click Me", action: {
-                //execute action
-                //print("Hello World")
-                self.title = "Hello World"
-                
+        NavigationView{
+            List{
+                ForEach(trips){
+                    trip in
+                    
+                    HStack {
+                        Image(systemName:"airplane.departure")
+                        VStack(alignment: .leading, content: {
+                            NavigationLink(trip.destination,destination: MainScreen())
+                                .font(.headline)
+                            
+                            Text("\(trip.startDate.formatted(date:.long, time:.shortened)) to \((trip.endDate).formatted(date:.long, time:.shortened))")
+                                .font(.system(size: 15))
+                                
+                        })
+                    }
+                }
+                .onDelete(perform: {indexSet in
+                    indexSet.map{trips[$0]}.forEach {trip in
+                        context.delete(trip)
+                    }
+                })
+                //adds padding to the items in the list
+                //.padding()
+            
+            }
+            
+            .navigationTitle("Trip Planner")
+            .toolbar{
+                Button{
+                    self.showSheet = true
+                } label: {
+                    Text("New Trip")
+                }
+            }
+            .sheet(isPresented: $showSheet, content: {
+                //new trip screen
+                NewTrip()
             })
-            .buttonStyle(.borderedProminent)
-            .tint(.gray)
-            .font(Font.system(size: 30))
-            .buttonBorderShape(.roundedRectangle)
-            .position(CGPoint(x: 200.0, y: 10.0))
-            .padding(.top)
         }
         
-        /*TabView{
-            Text("Hello")
-                .tabItem { Text("Hi") }
-            Text("Bye")
-                .tabItem { Text("By") }
-        }*/
+            
+        }
     }
-}
-
+   
+    
+    struct NewTrip: View{
+        @Environment(\.dismiss) var dismiss
+        @Environment(\.modelContext) var modelContext
+        //@State private var trip = TripData()
+        @State var destination: String = ""
+        @State var startDate: Date = Date()
+        @State var endDate: Date = Date()
+        var body: some View{
+            Form{
+                Section{
+                    TextField("Destination", text: $destination)
+                }
+                Section{
+                    DatePicker("Start Date", selection: $startDate)
+                }
+                Section{
+                    DatePicker("End Date", selection: $endDate)
+                }
+            }
+            VStack{
+                Button("Save"){
+                    let newTrip = TripData(destination:destination, startDate:startDate, endDate:endDate)
+                    modelContext.insert(newTrip)
+                    dismiss()
+                }
+                    .frame(width:100, height: 30, alignment: .center)
+                    .background(Color.blue)
+                    .foregroundColor(.white)
+                    .cornerRadius(8)
+            }
+          
+        }
+    }
     
 #Preview {
     ContentView()

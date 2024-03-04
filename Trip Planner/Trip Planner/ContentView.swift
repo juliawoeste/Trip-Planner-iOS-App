@@ -10,12 +10,16 @@ import SwiftData
 
 
 struct ContentView: View {
+    //first screen
     @Environment(\.modelContext) var context
+    //show new trip sheet
     @State var showSheet: Bool = false
+    //gets the trip data data
     @Query private var trips: [TripData]
     
     var body: some View {
         NavigationView{
+            //list of the trips
             List{
                 ForEach(trips){
                     trip in
@@ -23,15 +27,16 @@ struct ContentView: View {
                     HStack {
                         Image(systemName:"airplane.departure")
                         VStack(alignment: .leading, content: {
-                            NavigationLink(trip.destination,destination: MainScreen())
+                            NavigationLink(trip.destination,destination: MainScreen(tripdata:trip))
                                 .font(.headline)
                             
-                            Text("\(trip.startDate.formatted(date:.long, time:.shortened)) to \((trip.endDate).formatted(date:.long, time:.shortened))")
+                            Text("\(trip.startDate.formatted(date:.long, time:.omitted)) to \((trip.endDate).formatted(date:.long, time:.omitted))")
                                 .font(.system(size: 15))
                                 
                         })
                     }
                 }
+                //deletes the trip
                 .onDelete(perform: {indexSet in
                     indexSet.map{trips[$0]}.forEach {trip in
                         context.delete(trip)
@@ -43,6 +48,7 @@ struct ContentView: View {
             }
             
             .navigationTitle("Trip Planner")
+            
             .toolbar{
                 Button{
                     self.showSheet = true
@@ -50,17 +56,16 @@ struct ContentView: View {
                     Text("New Trip")
                 }
             }
+            
             .sheet(isPresented: $showSheet, content: {
                 //new trip screen
                 NewTrip()
             })
         }
-        
-            
         }
     }
    
-    
+    //new trip screen where users input information about the trip
     struct NewTrip: View{
         @Environment(\.dismiss) var dismiss
         @Environment(\.modelContext) var modelContext
@@ -74,25 +79,28 @@ struct ContentView: View {
                     TextField("Destination", text: $destination)
                 }
                 Section{
-                    DatePicker("Start Date", selection: $startDate)
+                    DatePicker("Start Date", selection: $startDate, displayedComponents: [.date])
+                        
                 }
                 Section{
-                    DatePicker("End Date", selection: $endDate)
+                    DatePicker("End Date", selection: $endDate, displayedComponents: [.date])
                 }
             }
+        
             VStack{
                 Button("Save"){
                     let newTrip = TripData(destination:destination, startDate:startDate, endDate:endDate)
                     modelContext.insert(newTrip)
                     dismiss()
                 }
-                    .frame(width:100, height: 30, alignment: .center)
+                    .frame(width:125, height: 40, alignment: .center)
                     .background(Color.blue)
                     .foregroundColor(.white)
                     .cornerRadius(8)
             }
           
         }
+        
     }
     
 #Preview {

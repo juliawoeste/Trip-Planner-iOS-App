@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C2425752B8FEA120059293E /* ItineraryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C2425742B8FEA110059293E /* ItineraryData.swift */; };
+		4C3CBB8F2B7D7D18008ECFBB /* Itinerary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3CBB8E2B7D7D18008ECFBB /* Itinerary.swift */; };
+		4C3CBB912B7D7DE7008ECFBB /* Packing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3CBB902B7D7DE7008ECFBB /* Packing.swift */; };
+		4C3CBB932B7D7EB2008ECFBB /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3CBB922B7D7EB2008ECFBB /* Budget.swift */; };
 		4C6F5B6E2B7C587C00927C94 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F5B6D2B7C587C00927C94 /* MainScreen.swift */; };
 		4C73A50B2B7B345300299A06 /* TripData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73A50A2B7B345300299A06 /* TripData.swift */; };
 		4CA220962B6B38BC002830FC /* Trip_PlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA220952B6B38BC002830FC /* Trip_PlannerApp.swift */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C2425742B8FEA110059293E /* ItineraryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItineraryData.swift; sourceTree = "<group>"; };
+		4C3CBB8E2B7D7D18008ECFBB /* Itinerary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Itinerary.swift; sourceTree = "<group>"; };
+		4C3CBB902B7D7DE7008ECFBB /* Packing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Packing.swift; sourceTree = "<group>"; };
+		4C3CBB922B7D7EB2008ECFBB /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		4C6F5B6D2B7C587C00927C94 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		4C73A50A2B7B345300299A06 /* TripData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripData.swift; sourceTree = "<group>"; };
 		4CA220922B6B38BC002830FC /* Trip Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trip Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,9 +65,13 @@
 			isa = PBXGroup;
 			children = (
 				4C73A50A2B7B345300299A06 /* TripData.swift */,
+				4C2425742B8FEA110059293E /* ItineraryData.swift */,
+				4C3CBB8E2B7D7D18008ECFBB /* Itinerary.swift */,
 				4CA220952B6B38BC002830FC /* Trip_PlannerApp.swift */,
 				4CA220972B6B38BC002830FC /* ContentView.swift */,
 				4C6F5B6D2B7C587C00927C94 /* MainScreen.swift */,
+				4C3CBB902B7D7DE7008ECFBB /* Packing.swift */,
+				4C3CBB922B7D7EB2008ECFBB /* Budget.swift */,
 				4CA220992B6B38C1002830FC /* Assets.xcassets */,
 				4CA2209B2B6B38C1002830FC /* Trip_Planner.entitlements */,
 				4CA2209C2B6B38C1002830FC /* Preview Content */,
@@ -148,7 +160,11 @@
 				4C6F5B6E2B7C587C00927C94 /* MainScreen.swift in Sources */,
 				4CA220982B6B38BC002830FC /* ContentView.swift in Sources */,
 				4CA220962B6B38BC002830FC /* Trip_PlannerApp.swift in Sources */,
+				4C3CBB912B7D7DE7008ECFBB /* Packing.swift in Sources */,
 				4C73A50B2B7B345300299A06 /* TripData.swift in Sources */,
+				4C3CBB932B7D7EB2008ECFBB /* Budget.swift in Sources */,
+				4C3CBB8F2B7D7D18008ECFBB /* Itinerary.swift in Sources */,
+				4C2425752B8FEA120059293E /* ItineraryData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

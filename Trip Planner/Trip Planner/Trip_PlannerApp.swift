@@ -15,5 +15,6 @@ struct Trip_PlannerApp: App {
             ContentView()
         }
         .modelContainer(for: TripData.self)
+        //.modelContainer(for: ItineraryData.self)
     }
 }

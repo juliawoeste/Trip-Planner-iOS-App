@@ -10,11 +10,12 @@ import SwiftData
 
 @main
 struct Trip_PlannerApp: App {
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: TripData.self)
+        .modelContainer(for: [TripData.self, ItineraryData.self])
         //.modelContainer(for: ItineraryData.self)
     }
 }

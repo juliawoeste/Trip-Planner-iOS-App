@@ -17,6 +17,7 @@ enum Tabs: String{
 struct MainScreen: View {
     @Query private var trips: [TripData]
     let tripdata: TripData
+    //@Binding var item: CheckItem
     //let itineraryInfo : ItineraryData
     @State var showSheet: Bool = false
     @State var selectedTab: Tabs = .itinerary

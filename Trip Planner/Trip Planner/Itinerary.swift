@@ -15,60 +15,62 @@ struct Itinerary: View {
     @Query private var itinerary: [ItineraryData]
     
     var body: some View {
-        ZStack{
-            List{
-                ForEach(itinerary){
-                    i in
-                    Section{
-                        HStack {
-                            Image(systemName:"ticket")
-                            VStack(alignment: .leading, content: {
-                    
+        ScrollView{
+            ZStack{
+                List{
+                    ForEach(itinerary){
+                        i in
+                        Section{
+                            HStack {
+                                Image(systemName:"ticket")
+                                VStack(alignment: .leading, content: {
+                                    
+                                    
+                                    Text("Event: \(i.eventName) \nDate: \((i.startDate).formatted(date:.long, time:.omitted)) \nTime: \((i.startTime).formatted(date:.omitted, time:.shortened)) - \((i.endTime).formatted(date:.omitted, time:.shortened))")
+                                        .font(.system(size: 15))
+                                        .fontWeight(.light)
+                                })
                                 
-                                Text("Event: \(i.eventName) \nDate: \((i.startDate).formatted(date:.long, time:.omitted)) \nTime: \((i.startTime).formatted(date:.omitted, time:.shortened)) - \((i.endTime).formatted(date:.omitted, time:.shortened))")
-                                    .font(.system(size: 15))
-                                    .fontWeight(.light)
-                            })
-                            
+                            }
                         }
                     }
+                    .onDelete(perform: {indexSet in
+                        indexSet.map{itinerary[$0]}.forEach {i in
+                            context.delete(i)
+                        }
+                    })
+                    .frame(height: 60)
                 }
-                .onDelete(perform: {indexSet in
-                    indexSet.map{itinerary[$0]}.forEach {i in
-                        context.delete(i)
-                    }
+                .padding(.top, 25)
+                //Spacer()
+                Text("Trip to \(tripdata.destination)")
+                    .padding(.bottom, 670)
+                    .padding(.leading, 185)
+                    .fontWeight(.medium)
+                
+                Button{
+                    self.showSheet = true
+                } label: {
+                    //Image(systemName:"plus")
+                    Text("Add an Event")
+                        .fontWeight(.medium)
+                }
+                .padding(.bottom, 600)
+                //.padding(.leading, 120)
+                
+                .foregroundColor(.blue)
+                .cornerRadius(8)
+                
+                .sheet(isPresented: $showSheet, content: {
+                    //new trip screen
+                    NewItinerary()
                 })
-                .frame(height: 60)
+                
+                
             }
-            .padding(.top, 25)
-            //Spacer()
-            Text("Trip to \(tripdata.destination)")
-                .padding(.bottom, 670)
-                .padding(.leading, 185)
-                .fontWeight(.medium)
             
-            Button{
-                self.showSheet = true
-            } label: {
-                //Image(systemName:"plus")
-                Text("Add an Event")
-                    .fontWeight(.semibold)
-            }
-            .padding(.bottom, 600)
-            //.padding(.leading, 120)
-           
-            .foregroundColor(.blue)
-            .cornerRadius(8)
-            
-            .sheet(isPresented: $showSheet, content: {
-                //new trip screen
-                NewItinerary()
-            })
-            
-            
+            .background(Color.white)
         }
-       
-        .background(Color.white)
     }
 }
 

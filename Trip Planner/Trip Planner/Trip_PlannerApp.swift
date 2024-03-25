@@ -15,7 +15,6 @@ struct Trip_PlannerApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [TripData.self, ItineraryData.self])
-        //.modelContainer(for: ItineraryData.self)
+        .modelContainer(for: [TripData.self, ItineraryData.self, NewPackingData.self])
     }
 }

@@ -17,6 +17,7 @@
 		4CA220982B6B38BC002830FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA220972B6B38BC002830FC /* ContentView.swift */; };
 		4CA2209A2B6B38C1002830FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CA220992B6B38C1002830FC /* Assets.xcassets */; };
 		4CA2209E2B6B38C1002830FC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CA2209D2B6B38C1002830FC /* Preview Assets.xcassets */; };
+		4CCBB7EC2BAF9E0800D387C1 /* NewPackingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCBB7EB2BAF9E0800D387C1 /* NewPackingData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		4CA220992B6B38C1002830FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4CA2209B2B6B38C1002830FC /* Trip_Planner.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Trip_Planner.entitlements; sourceTree = "<group>"; };
 		4CA2209D2B6B38C1002830FC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4CCBB7EB2BAF9E0800D387C1 /* NewPackingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPackingData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 				4CA220972B6B38BC002830FC /* ContentView.swift */,
 				4C6F5B6D2B7C587C00927C94 /* MainScreen.swift */,
 				4C3CBB902B7D7DE7008ECFBB /* Packing.swift */,
+				4CCBB7EB2BAF9E0800D387C1 /* NewPackingData.swift */,
 				4C3CBB922B7D7EB2008ECFBB /* Budget.swift */,
 				4CA220992B6B38C1002830FC /* Assets.xcassets */,
 				4CA2209B2B6B38C1002830FC /* Trip_Planner.entitlements */,
@@ -162,6 +165,7 @@
 				4CA220962B6B38BC002830FC /* Trip_PlannerApp.swift in Sources */,
 				4C3CBB912B7D7DE7008ECFBB /* Packing.swift in Sources */,
 				4C73A50B2B7B345300299A06 /* TripData.swift in Sources */,
+				4CCBB7EC2BAF9E0800D387C1 /* NewPackingData.swift in Sources */,
 				4C3CBB932B7D7EB2008ECFBB /* Budget.swift in Sources */,
 				4C3CBB8F2B7D7D18008ECFBB /* Itinerary.swift in Sources */,
 				4C2425752B8FEA120059293E /* ItineraryData.swift in Sources */,

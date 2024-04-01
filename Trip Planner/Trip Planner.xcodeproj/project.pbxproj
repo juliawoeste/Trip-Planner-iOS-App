@@ -12,6 +12,7 @@
 		4C3CBB912B7D7DE7008ECFBB /* Packing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3CBB902B7D7DE7008ECFBB /* Packing.swift */; };
 		4C3CBB932B7D7EB2008ECFBB /* Budget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3CBB922B7D7EB2008ECFBB /* Budget.swift */; };
 		4C6F5B6E2B7C587C00927C94 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6F5B6D2B7C587C00927C94 /* MainScreen.swift */; };
+		4C708F822BB3AA6D0090ED74 /* PackingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C708F812BB3AA6D0090ED74 /* PackingData.swift */; };
 		4C73A50B2B7B345300299A06 /* TripData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73A50A2B7B345300299A06 /* TripData.swift */; };
 		4CA220962B6B38BC002830FC /* Trip_PlannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA220952B6B38BC002830FC /* Trip_PlannerApp.swift */; };
 		4CA220982B6B38BC002830FC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA220972B6B38BC002830FC /* ContentView.swift */; };
@@ -26,6 +27,7 @@
 		4C3CBB902B7D7DE7008ECFBB /* Packing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Packing.swift; sourceTree = "<group>"; };
 		4C3CBB922B7D7EB2008ECFBB /* Budget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Budget.swift; sourceTree = "<group>"; };
 		4C6F5B6D2B7C587C00927C94 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		4C708F812BB3AA6D0090ED74 /* PackingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackingData.swift; sourceTree = "<group>"; };
 		4C73A50A2B7B345300299A06 /* TripData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripData.swift; sourceTree = "<group>"; };
 		4CA220922B6B38BC002830FC /* Trip Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Trip Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CA220952B6B38BC002830FC /* Trip_PlannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip_PlannerApp.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				4CA220972B6B38BC002830FC /* ContentView.swift */,
 				4C6F5B6D2B7C587C00927C94 /* MainScreen.swift */,
 				4C3CBB902B7D7DE7008ECFBB /* Packing.swift */,
+				4C708F812BB3AA6D0090ED74 /* PackingData.swift */,
 				4CCBB7EB2BAF9E0800D387C1 /* NewPackingData.swift */,
 				4C3CBB922B7D7EB2008ECFBB /* Budget.swift */,
 				4CA220992B6B38C1002830FC /* Assets.xcassets */,
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C6F5B6E2B7C587C00927C94 /* MainScreen.swift in Sources */,
+				4C708F822BB3AA6D0090ED74 /* PackingData.swift in Sources */,
 				4CA220982B6B38BC002830FC /* ContentView.swift in Sources */,
 				4CA220962B6B38BC002830FC /* Trip_PlannerApp.swift in Sources */,
 				4C3CBB912B7D7DE7008ECFBB /* Packing.swift in Sources */,

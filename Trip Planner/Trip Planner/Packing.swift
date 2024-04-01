@@ -15,7 +15,7 @@ import SwiftData
 struct Packing: View {
     @State var showSheet: Bool = false
     @Environment(\.modelContext) var context
-    @Query private var packing: [NewPackingData]
+    @Query private var packing: [PackingData]
     @State var selectedCategory: String?
     
     var body: some View {
@@ -23,82 +23,163 @@ struct Packing: View {
             ZStack {
                 List {
                     Section("Clothes") {
-                        ForEach(filteredItems(for: "Clothes")) { p in
+                        ForEach(filteredItems(for: "Clothes").indices, id: \.self) { index in
+                            let item = filteredItems(for: "Clothes")[index]
                             HStack {
-                                Text("\(p.itemName) \nTotal number: \(p.numofItems)")
+                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                     .fontWeight(.medium)
+                                Spacer()
+                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                    .foregroundColor(item.isCompleted ? .green : .gray)
+                                    .onTapGesture {
+                                        withAnimation {
+                                            item.isCompleted.toggle()
+                                        }
+                                    }
                             }
                         }
                         .onDelete(perform: deleteItems)
                     }
                     Section("Toiletries") {
-                        ForEach(filteredItems(for: "Toiletries")) { p in
+                        ForEach(filteredItems(for: "Toiletries").indices, id: \.self) { index in
+                            let item = filteredItems(for: "Toiletries")[index]
                             HStack {
-                                Text("\(p.itemName) \nTotal number: \(p.numofItems)")
+                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                     .fontWeight(.medium)
+                                Spacer()
+                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                    .foregroundColor(item.isCompleted ? .green : .gray)
+                                    .onTapGesture {
+                                        withAnimation {
+                                            item.isCompleted.toggle()
+                                        }
+                                    }
                             }
                         }
                         .onDelete(perform: deleteItems)
                     }
                     Section("Shoes") {
-                        ForEach(filteredItems(for: "Shoes")) { p in
+                        ForEach(filteredItems(for: "Shoes").indices, id: \.self) { index in
+                            let item = filteredItems(for: "Shoes")[index]
                             HStack {
-                                Text("\(p.itemName) \nTotal number: \(p.numofItems)")
+                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                     .fontWeight(.medium)
+                                Spacer()
+                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                    .foregroundColor(item.isCompleted ? .green : .gray)
+                                    .onTapGesture {
+                                        withAnimation {
+                                            item.isCompleted.toggle()
+                                        }
+                                    }
                             }
                         }
                         .onDelete(perform: deleteItems)
                     }
                     Section("Hair") {
-                        ForEach(filteredItems(for: "Hair")) { p in
+                        ForEach(filteredItems(for: "Hair").indices, id: \.self) { index in
+                            let item = filteredItems(for: "Hair")[index]
                             HStack {
-                                Text("\(p.itemName) \nTotal number: \(p.numofItems)")
+                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                     .fontWeight(.medium)
+                                Spacer()
+                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                    .foregroundColor(item.isCompleted ? .green : .gray)
+                                    .onTapGesture {
+                                        withAnimation {
+                                            item.isCompleted.toggle()
+                                        }
+                                    }
                             }
                         }
                         .onDelete(perform: deleteItems)
                     }
                     Section("Makeup") {
-                        ForEach(filteredItems(for: "Makeup")) { p in
+                        ForEach(filteredItems(for: "Makeup").indices, id: \.self) { index in
+                            let item = filteredItems(for: "Makeup")[index]
                             HStack {
-                                Text("\(p.itemName) \nTotal number: \(p.numofItems)")
+                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                     .fontWeight(.medium)
+                                Spacer()
+                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                    .foregroundColor(item.isCompleted ? .green : .gray)
+                                    .onTapGesture {
+                                        withAnimation {
+                                            item.isCompleted.toggle()
+                                        }
+                                    }
                             }
                         }
                         .onDelete(perform: deleteItems)
                     }
                     Section("First Aid") {
-                        ForEach(filteredItems(for: "First Aid")) { p in
+                        ForEach(filteredItems(for: "First Aid").indices, id: \.self) { index in
+                            let item = filteredItems(for: "First Aid")[index]
                             HStack {
-                                Text("\(p.itemName) \nTotal number: \(p.numofItems)")
+                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                     .fontWeight(.medium)
+                                Spacer()
+                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                    .foregroundColor(item.isCompleted ? .green : .gray)
+                                    .onTapGesture {
+                                        withAnimation {
+                                            item.isCompleted.toggle()
+                                        }
+                                    }
                             }
                         }
                         .onDelete(perform: deleteItems)
                     }
                     Section("Electronics") {
-                        ForEach(filteredItems(for: "Electronics")) { p in
+                        ForEach(filteredItems(for: "Electronics").indices, id: \.self) { index in
+                            let item = filteredItems(for: "Electronics")[index]
                             HStack {
-                                Text("\(p.itemName) \nTotal number: \(p.numofItems)")
+                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                     .fontWeight(.medium)
+                                Spacer()
+                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                    .foregroundColor(item.isCompleted ? .green : .gray)
+                                    .onTapGesture {
+                                        withAnimation {
+                                            item.isCompleted.toggle()
+                                        }
+                                    }
                             }
                         }
                         .onDelete(perform: deleteItems)
                     }
                     Section("Documents") {
-                        ForEach(filteredItems(for: "Documents")) { p in
+                        ForEach(filteredItems(for: "Documents").indices, id: \.self) { index in
+                            let item = filteredItems(for: "Documents")[index]
                             HStack {
-                                Text("\(p.itemName) \nTotal number: \(p.numofItems)")
+                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                     .fontWeight(.medium)
+                                Spacer()
+                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                    .foregroundColor(item.isCompleted ? .green : .gray)
+                                    .onTapGesture {
+                                        withAnimation {
+                                            item.isCompleted.toggle()
+                                        }
+                                    }
                             }
                         }
                         .onDelete(perform: deleteItems)
                     }
                     Section("Other") {
-                        ForEach(filteredItems(for: "Other")) { p in
+                        ForEach(filteredItems(for: "Other").indices, id: \.self) { index in
+                            let item = filteredItems(for: "Other")[index]
                             HStack {
-                                Text("\(p.itemName) \nTotal number: \(p.numofItems)")
+                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                     .fontWeight(.medium)
+                                Spacer()
+                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                    .foregroundColor(item.isCompleted ? .green : .gray)
+                                    .onTapGesture {
+                                        withAnimation {
+                                            item.isCompleted.toggle()
+                                        }
+                                    }
                             }
                         }
                         .onDelete(perform: deleteItems)
@@ -108,7 +189,7 @@ struct Packing: View {
                 Button {
                     self.showSheet = true
                 } label: {
-                    Text("Add an Event")
+                    Text("Add an Item")
                         .fontWeight(.medium)
                 }
                 .padding(.bottom, 630)
@@ -121,13 +202,21 @@ struct Packing: View {
         }
     }
     
-    func filteredItems(for category: String) -> [NewPackingData] {
+    func filteredItems(for category: String) -> [PackingData] {
         return packing.filter { $0.selected == category }
     }
     
     func deleteItems(at offsets: IndexSet) {
-        for index in offsets {
-            context.delete(packing[index])
+        for offset in offsets {
+            let items = packing.filter { item in
+                return filteredItems(for: item.selected).contains(item)
+            }
+            if offset < items.count {
+                let item = items[offset]
+                if let index = packing.firstIndex(where: { $0.id == item.id }) {
+                    context.delete(packing[index])
+                }
+            }
         }
     }
 }
@@ -140,6 +229,7 @@ struct NewPacking: View{
     @State var itemName: String = ""
     @State var numofItems: Int = 0
     @State var selected: String = ""
+    @State var isCompleted: Bool = false
     @State var options: [String] = ["Clothes", "Toiletries", "Shoes", "Hair", "Makeup", "First Aid", "Electronics", "Documents", "Other"]
     var body: some View{
         VStack{
@@ -169,7 +259,7 @@ struct NewPacking: View{
             .fontWeight(.medium)
             
             Button("Save"){
-                let newPacking = NewPackingData(itemName:itemName, numofItems:numofItems, selected:selected)
+                let newPacking = PackingData(itemName:itemName, numofItems:numofItems, selected:selected, isCompleted:isCompleted)
                 modelContext.insert(newPacking)
                 dismiss()
             }

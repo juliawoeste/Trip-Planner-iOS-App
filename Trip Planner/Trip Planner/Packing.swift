@@ -25,35 +25,54 @@ struct Packing: View {
                     Section("Clothes") {
                         ForEach(filteredItems(for: "Clothes").indices, id: \.self) { index in
                             let item = filteredItems(for: "Clothes")[index]
-                            HStack {
-                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
-                                    .fontWeight(.medium)
-                                Spacer()
-                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                    .foregroundColor(item.isCompleted ? .green : .gray)
-                                    .onTapGesture {
-                                        withAnimation {
-                                            item.isCompleted.toggle()
-                                        }
-                                    }
+                            ZStack(alignment: .leading) {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.black, lineWidth: 1)
+                                HStack {
+                                    Image(systemName:"tshirt")
+                                        Text("\(item.itemName) \nTotal number: \(item.numofItems)")
+                                            .fontWeight(.light)
+                                        Spacer()
+                                        Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                            .foregroundColor(item.isCompleted ? .green : .gray)
+                                            .onTapGesture {
+                                                withAnimation {
+                                                    item.isCompleted.toggle()
+                                                }
+                                            }
+                                            .listRowBackground(Color.white)
+                                    
+                                }
+                                .padding([.leading, .trailing],10)
+                                
                             }
+                            
                         }
                         .onDelete(perform: deleteItems)
                     }
                     Section("Toiletries") {
                         ForEach(filteredItems(for: "Toiletries").indices, id: \.self) { index in
                             let item = filteredItems(for: "Toiletries")[index]
-                            HStack {
-                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
-                                    .fontWeight(.medium)
-                                Spacer()
-                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                    .foregroundColor(item.isCompleted ? .green : .gray)
-                                    .onTapGesture {
-                                        withAnimation {
-                                            item.isCompleted.toggle()
-                                        }
-                                    }
+                            ZStack(alignment: .leading) {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.black, lineWidth: 1)
+                                HStack {
+                                    Image(systemName:"shower")
+                                        Text("\(item.itemName) \nTotal number: \(item.numofItems)")
+                                            .fontWeight(.light)
+                                        Spacer()
+                                        Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                            .foregroundColor(item.isCompleted ? .green : .gray)
+                                            .onTapGesture {
+                                                withAnimation {
+                                                    item.isCompleted.toggle()
+                                                }
+                                            }
+                                            .listRowBackground(Color.white)
+                                    
+                                }
+                                
+                                .padding([.leading, .trailing],10)
                             }
                         }
                         .onDelete(perform: deleteItems)
@@ -61,17 +80,24 @@ struct Packing: View {
                     Section("Shoes") {
                         ForEach(filteredItems(for: "Shoes").indices, id: \.self) { index in
                             let item = filteredItems(for: "Shoes")[index]
-                            HStack {
-                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
-                                    .fontWeight(.medium)
-                                Spacer()
-                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                    .foregroundColor(item.isCompleted ? .green : .gray)
-                                    .onTapGesture {
-                                        withAnimation {
-                                            item.isCompleted.toggle()
+                            ZStack(alignment: .leading) {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.black, lineWidth: 1)
+                                HStack {
+                                    Image(systemName:"shoe")
+                                    Text("\(item.itemName) \nTotal number: \(item.numofItems)")
+                                        .fontWeight(.light)
+                                    Spacer()
+                                    Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                        .foregroundColor(item.isCompleted ? .green : .gray)
+                                        .onTapGesture {
+                                            withAnimation {
+                                                item.isCompleted.toggle()
+                                            }
                                         }
-                                    }
+                                        .listRowBackground(Color.white)
+                                }
+                                .padding([.leading, .trailing],10)
                             }
                         }
                         .onDelete(perform: deleteItems)
@@ -79,17 +105,24 @@ struct Packing: View {
                     Section("Hair") {
                         ForEach(filteredItems(for: "Hair").indices, id: \.self) { index in
                             let item = filteredItems(for: "Hair")[index]
-                            HStack {
-                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
-                                    .fontWeight(.medium)
-                                Spacer()
-                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                    .foregroundColor(item.isCompleted ? .green : .gray)
-                                    .onTapGesture {
-                                        withAnimation {
-                                            item.isCompleted.toggle()
+                            ZStack(alignment: .leading) {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.black, lineWidth: 1)
+                                HStack {
+                                    Image(systemName:"comb")
+                                    Text("\(item.itemName) \nTotal number: \(item.numofItems)")
+                                        .fontWeight(.light)
+                                    Spacer()
+                                    Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                        .foregroundColor(item.isCompleted ? .green : .gray)
+                                        .onTapGesture {
+                                            withAnimation {
+                                                item.isCompleted.toggle()
+                                            }
                                         }
-                                    }
+                                        .listRowBackground(Color.white)
+                                }
+                                .padding([.leading, .trailing],10)
                             }
                         }
                         .onDelete(perform: deleteItems)
@@ -97,17 +130,24 @@ struct Packing: View {
                     Section("Makeup") {
                         ForEach(filteredItems(for: "Makeup").indices, id: \.self) { index in
                             let item = filteredItems(for: "Makeup")[index]
-                            HStack {
-                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
-                                    .fontWeight(.medium)
-                                Spacer()
-                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                    .foregroundColor(item.isCompleted ? .green : .gray)
-                                    .onTapGesture {
-                                        withAnimation {
-                                            item.isCompleted.toggle()
+                            ZStack(alignment: .leading) {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.black, lineWidth: 1)
+                                HStack {
+                                    Image(systemName:"eyebrow")
+                                    Text("\(item.itemName) \nTotal number: \(item.numofItems)")
+                                        .fontWeight(.light)
+                                    Spacer()
+                                    Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                        .foregroundColor(item.isCompleted ? .green : .gray)
+                                        .onTapGesture {
+                                            withAnimation {
+                                                item.isCompleted.toggle()
+                                            }
                                         }
-                                    }
+                                        .listRowBackground(Color.white)
+                                }
+                                .padding([.leading, .trailing],10)
                             }
                         }
                         .onDelete(perform: deleteItems)
@@ -115,17 +155,24 @@ struct Packing: View {
                     Section("First Aid") {
                         ForEach(filteredItems(for: "First Aid").indices, id: \.self) { index in
                             let item = filteredItems(for: "First Aid")[index]
-                            HStack {
-                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
-                                    .fontWeight(.medium)
-                                Spacer()
-                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                    .foregroundColor(item.isCompleted ? .green : .gray)
-                                    .onTapGesture {
-                                        withAnimation {
-                                            item.isCompleted.toggle()
+                            ZStack(alignment: .leading) {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.black, lineWidth: 1)
+                                HStack {
+                                    Image(systemName:"cross.case")
+                                    Text("\(item.itemName) \nTotal number: \(item.numofItems)")
+                                        .fontWeight(.light)
+                                    Spacer()
+                                    Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                        .foregroundColor(item.isCompleted ? .green : .gray)
+                                        .onTapGesture {
+                                            withAnimation {
+                                                item.isCompleted.toggle()
+                                            }
                                         }
-                                    }
+                                        .listRowBackground(Color.white)
+                                }
+                                .padding([.leading, .trailing],10)
                             }
                         }
                         .onDelete(perform: deleteItems)
@@ -133,17 +180,24 @@ struct Packing: View {
                     Section("Electronics") {
                         ForEach(filteredItems(for: "Electronics").indices, id: \.self) { index in
                             let item = filteredItems(for: "Electronics")[index]
-                            HStack {
-                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
-                                    .fontWeight(.medium)
-                                Spacer()
-                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                    .foregroundColor(item.isCompleted ? .green : .gray)
-                                    .onTapGesture {
-                                        withAnimation {
-                                            item.isCompleted.toggle()
+                            ZStack(alignment: .leading) {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.black, lineWidth: 1)
+                                HStack {
+                                    Image(systemName:"ipad.and.iphone")
+                                    Text("\(item.itemName) \nTotal number: \(item.numofItems)")
+                                        .fontWeight(.light)
+                                    Spacer()
+                                    Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                        .foregroundColor(item.isCompleted ? .green : .gray)
+                                        .onTapGesture {
+                                            withAnimation {
+                                                item.isCompleted.toggle()
+                                            }
                                         }
-                                    }
+                                        .listRowBackground(Color.white)
+                                }
+                                .padding([.leading, .trailing],10)
                             }
                         }
                         .onDelete(perform: deleteItems)
@@ -151,17 +205,24 @@ struct Packing: View {
                     Section("Documents") {
                         ForEach(filteredItems(for: "Documents").indices, id: \.self) { index in
                             let item = filteredItems(for: "Documents")[index]
-                            HStack {
-                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
-                                    .fontWeight(.medium)
-                                Spacer()
-                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                    .foregroundColor(item.isCompleted ? .green : .gray)
-                                    .onTapGesture {
-                                        withAnimation {
-                                            item.isCompleted.toggle()
+                            ZStack(alignment: .leading) {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.black, lineWidth: 1)
+                                HStack {
+                                    Image(systemName:"doc.plaintext")
+                                    Text("\(item.itemName) \nTotal number: \(item.numofItems)")
+                                        .fontWeight(.light)
+                                    Spacer()
+                                    Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                        .foregroundColor(item.isCompleted ? .green : .gray)
+                                        .onTapGesture {
+                                            withAnimation {
+                                                item.isCompleted.toggle()
+                                            }
                                         }
-                                    }
+                                        .listRowBackground(Color.white)
+                                }
+                                .padding([.leading, .trailing],10)
                             }
                         }
                         .onDelete(perform: deleteItems)
@@ -169,17 +230,24 @@ struct Packing: View {
                     Section("Other") {
                         ForEach(filteredItems(for: "Other").indices, id: \.self) { index in
                             let item = filteredItems(for: "Other")[index]
-                            HStack {
-                                Text("\(item.itemName) \nTotal number: \(item.numofItems)")
-                                    .fontWeight(.medium)
-                                Spacer()
-                                Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                    .foregroundColor(item.isCompleted ? .green : .gray)
-                                    .onTapGesture {
-                                        withAnimation {
-                                            item.isCompleted.toggle()
+                            ZStack(alignment: .leading) {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.black, lineWidth: 1)
+                                HStack {
+                                    Image(systemName:"checkmark.gobackward")
+                                    Text("\(item.itemName) \nTotal number: \(item.numofItems)")
+                                        .fontWeight(.light)
+                                    Spacer()
+                                    Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
+                                        .foregroundColor(item.isCompleted ? .green : .gray)
+                                        .onTapGesture {
+                                            withAnimation {
+                                                item.isCompleted.toggle()
+                                            }
                                         }
-                                    }
+                                        .listRowBackground(Color.white)
+                                }
+                                .padding([.leading, .trailing],10)
                             }
                         }
                         .onDelete(perform: deleteItems)
@@ -198,7 +266,9 @@ struct Packing: View {
                 .sheet(isPresented: $showSheet) {
                     NewPacking()
                 }
+                
             }
+            .listStyle(PlainListStyle())
         }
     }
     

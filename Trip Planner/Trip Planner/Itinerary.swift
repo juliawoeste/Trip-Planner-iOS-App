@@ -21,19 +21,27 @@ struct Itinerary: View {
                     ForEach(itinerary){
                         i in
                         Section{
-                            HStack {
-                                Image(systemName:"ticket")
-                                VStack(alignment: .leading, content: {
+                    
+                                ZStack(alignment: .leading) {
+                                    RoundedRectangle(cornerRadius: 8)
+                                        .stroke(Color.black, lineWidth: 1)
                                     
-                                    
-                                    Text("Event: \(i.eventName) \nDate: \((i.startDate).formatted(date:.long, time:.omitted)) \nTime: \((i.startTime).formatted(date:.omitted, time:.shortened)) - \((i.endTime).formatted(date:.omitted, time:.shortened))")
-                                        .font(.system(size: 15))
-                                        .fontWeight(.light)
-                                })
-                                
-                            }
+                                    HStack {
+                                        Image(systemName:"ticket")
+                                        VStack(alignment: .leading, content: {
+                                            
+                                            
+                                            Text("Event: \(i.eventName) \nDate: \((i.startDate).formatted(date:.long, time:.omitted)) \nTime: \((i.startTime).formatted(date:.omitted, time:.shortened)) - \((i.endTime).formatted(date:.omitted, time:.shortened))")
+                                                .font(.system(size: 15))
+                                                .fontWeight(.light)
+                                        })
+                                        .listRowBackground(Color.white)
+                                    }
+                                }
+                            
                         }
                     }
+                    
                     .onDelete(perform: {indexSet in
                         indexSet.map{itinerary[$0]}.forEach {i in
                             context.delete(i)
@@ -41,11 +49,12 @@ struct Itinerary: View {
                     })
                     .frame(height: 60)
                 }
-                .padding(.top, 25)
-                //Spacer()
+                .listStyle(PlainListStyle())
+                .padding(.top, 40)
+                Spacer()
                 Text("Trip to \(tripdata.destination)")
-                    .padding(.bottom, 670)
-                    .padding(.leading, 185)
+                    .padding(.bottom, 680)
+                    .padding(.leading, 0)
                     .fontWeight(.medium)
                 
                 Button{
@@ -55,7 +64,7 @@ struct Itinerary: View {
                     Text("Add an Event")
                         .fontWeight(.medium)
                 }
-                .padding(.bottom, 600)
+                .padding(.bottom, 640)
                 //.padding(.leading, 120)
                 
                 .foregroundColor(.blue)

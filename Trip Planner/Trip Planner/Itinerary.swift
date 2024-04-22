@@ -25,7 +25,7 @@ struct Itinerary: View {
                                 ZStack(alignment: .leading) {
                                     RoundedRectangle(cornerRadius: 8)
                                         .stroke(Color.black, lineWidth: 1)
-                                    
+                                        //.fill(Color.accentColor)
                                     HStack {
                                         Image(systemName:"ticket")
                                         VStack(alignment: .leading, content: {
@@ -53,18 +53,22 @@ struct Itinerary: View {
                 .padding(.top, 40)
                 Spacer()
                 Text("Trip to \(tripdata.destination)")
-                    .padding(.bottom, 680)
+                    .padding(.bottom, 710)
                     .padding(.leading, 0)
                     .fontWeight(.medium)
-                
+                Spacer()
                 Button{
                     self.showSheet = true
                 } label: {
                     //Image(systemName:"plus")
                     Text("Add an Event")
                         .fontWeight(.medium)
+                        .foregroundColor(.white)
+                        .padding(3)
+                        .background(Color.accentColor)
+                        .cornerRadius(8)
                 }
-                .padding(.bottom, 640)
+                .padding(.bottom, 660)
                 //.padding(.leading, 120)
                 
                 .foregroundColor(.blue)

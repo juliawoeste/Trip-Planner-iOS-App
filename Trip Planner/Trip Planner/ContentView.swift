@@ -33,11 +33,14 @@ struct ContentView: View {
                                 
                                 Text("\(trip.startDate.formatted(date:.long, time:.omitted)) to \((trip.endDate).formatted(date:.long, time:.omitted))")
                                     .font(.system(size: 15))
+                                    .foregroundColor(.accentColor)
                                 
                             })
                         }
+                        
                     }
                 }
+                
                 //deletes the trip
                 .onDelete(perform: {indexSet in
                     indexSet.map{trips[$0]}.forEach {trip in
@@ -48,7 +51,7 @@ struct ContentView: View {
                 //.padding()
                 
             }
-            
+         
             .navigationTitle("Trip Planner")
             
             .toolbar{
@@ -57,6 +60,7 @@ struct ContentView: View {
                 } label: {
                     Text("New Trip")
                 }
+                
             }
             
             .sheet(isPresented: $showSheet, content: {
@@ -64,7 +68,9 @@ struct ContentView: View {
                 NewTrip()
             })
         }
+      
     }
+    
 }
 
 

@@ -8,13 +8,11 @@
 import SwiftUI
 import SwiftData
 
-//struct CheckItem {
-//    var isChecked: Bool
-//}
 
 struct Packing: View {
     @State var showSheet: Bool = false
     @Environment(\.modelContext) var context
+    let tripdata: TripData
     @Query private var packing: [PackingData]
     @State var selectedCategory: String?
     
@@ -28,13 +26,14 @@ struct Packing: View {
                             ZStack(alignment: .leading) {
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(Color.black, lineWidth: 1)
+                                  
                                 HStack {
                                     Image(systemName:"tshirt")
                                         Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                             .fontWeight(.light)
                                         Spacer()
                                         Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                            .foregroundColor(item.isCompleted ? .green : .gray)
+                                            .foregroundColor(item.isCompleted ? .accentColor : .gray)
                                             .onTapGesture {
                                                 withAnimation {
                                                     item.isCompleted.toggle()
@@ -56,13 +55,14 @@ struct Packing: View {
                             ZStack(alignment: .leading) {
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(Color.black, lineWidth: 1)
+                                  
                                 HStack {
                                     Image(systemName:"shower")
                                         Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                             .fontWeight(.light)
                                         Spacer()
                                         Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                            .foregroundColor(item.isCompleted ? .green : .gray)
+                                            .foregroundColor(item.isCompleted ? .accentColor : .gray)
                                             .onTapGesture {
                                                 withAnimation {
                                                     item.isCompleted.toggle()
@@ -83,13 +83,14 @@ struct Packing: View {
                             ZStack(alignment: .leading) {
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(Color.black, lineWidth: 1)
+                                  
                                 HStack {
                                     Image(systemName:"shoe")
                                     Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                         .fontWeight(.light)
                                     Spacer()
                                     Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                        .foregroundColor(item.isCompleted ? .green : .gray)
+                                        .foregroundColor(item.isCompleted ? .accentColor : .gray)
                                         .onTapGesture {
                                             withAnimation {
                                                 item.isCompleted.toggle()
@@ -108,13 +109,14 @@ struct Packing: View {
                             ZStack(alignment: .leading) {
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(Color.black, lineWidth: 1)
+                                  
                                 HStack {
                                     Image(systemName:"comb")
                                     Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                         .fontWeight(.light)
                                     Spacer()
                                     Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                        .foregroundColor(item.isCompleted ? .green : .gray)
+                                        .foregroundColor(item.isCompleted ? .accentColor : .gray)
                                         .onTapGesture {
                                             withAnimation {
                                                 item.isCompleted.toggle()
@@ -133,13 +135,14 @@ struct Packing: View {
                             ZStack(alignment: .leading) {
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(Color.black, lineWidth: 1)
+                                  
                                 HStack {
                                     Image(systemName:"eyebrow")
                                     Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                         .fontWeight(.light)
                                     Spacer()
                                     Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                        .foregroundColor(item.isCompleted ? .green : .gray)
+                                        .foregroundColor(item.isCompleted ? .accentColor : .gray)
                                         .onTapGesture {
                                             withAnimation {
                                                 item.isCompleted.toggle()
@@ -158,13 +161,14 @@ struct Packing: View {
                             ZStack(alignment: .leading) {
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(Color.black, lineWidth: 1)
+                                   
                                 HStack {
                                     Image(systemName:"cross.case")
                                     Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                         .fontWeight(.light)
                                     Spacer()
                                     Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                        .foregroundColor(item.isCompleted ? .green : .gray)
+                                        .foregroundColor(item.isCompleted ? .accentColor : .gray)
                                         .onTapGesture {
                                             withAnimation {
                                                 item.isCompleted.toggle()
@@ -183,13 +187,14 @@ struct Packing: View {
                             ZStack(alignment: .leading) {
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(Color.black, lineWidth: 1)
+                                  
                                 HStack {
                                     Image(systemName:"ipad.and.iphone")
                                     Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                         .fontWeight(.light)
                                     Spacer()
                                     Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                        .foregroundColor(item.isCompleted ? .green : .gray)
+                                        .foregroundColor(item.isCompleted ? .accentColor : .gray)
                                         .onTapGesture {
                                             withAnimation {
                                                 item.isCompleted.toggle()
@@ -208,13 +213,14 @@ struct Packing: View {
                             ZStack(alignment: .leading) {
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(Color.black, lineWidth: 1)
+                                   
                                 HStack {
                                     Image(systemName:"doc.plaintext")
                                     Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                         .fontWeight(.light)
                                     Spacer()
                                     Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                        .foregroundColor(item.isCompleted ? .green : .gray)
+                                        .foregroundColor(item.isCompleted ? .accentColor : .gray)
                                         .onTapGesture {
                                             withAnimation {
                                                 item.isCompleted.toggle()
@@ -233,13 +239,14 @@ struct Packing: View {
                             ZStack(alignment: .leading) {
                                 RoundedRectangle(cornerRadius: 8)
                                     .stroke(Color.black, lineWidth: 1)
+                                  
                                 HStack {
                                     Image(systemName:"checkmark.gobackward")
                                     Text("\(item.itemName) \nTotal number: \(item.numofItems)")
                                         .fontWeight(.light)
                                     Spacer()
                                     Image(systemName: item.isCompleted ? "checkmark.circle.fill" : "circle")
-                                        .foregroundColor(item.isCompleted ? .green : .gray)
+                                        .foregroundColor(item.isCompleted ? .accentColor : .gray)
                                         .onTapGesture {
                                             withAnimation {
                                                 item.isCompleted.toggle()
@@ -259,6 +266,10 @@ struct Packing: View {
                 } label: {
                     Text("Add an Item")
                         .fontWeight(.medium)
+                        .foregroundColor(.white)
+                        .padding(3)
+                        .background(Color.accentColor)
+                        .cornerRadius(8)
                 }
                 .padding(.bottom, 630)
                 .foregroundColor(.blue)
@@ -304,8 +315,8 @@ struct NewPacking: View{
     var body: some View{
         VStack{
             Form{
-                Section{
-                    TextField("Item Name", text: $itemName)
+                Section("Item"){
+                    TextField("Name", text: $itemName)
                 }
                 Section{
                     Picker("Number of items", selection: $numofItems, content: {

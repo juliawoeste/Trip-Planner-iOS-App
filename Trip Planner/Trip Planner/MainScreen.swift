@@ -15,10 +15,9 @@ enum Tabs: String{
 }
 
 struct MainScreen: View {
-    @Query private var trips: [TripData]
+    //@Query private var trips: [TripData]
+    //@State private var selectedTrip = TripData(destination: "Paris", startDate: Date(), endDate: Date())
     let tripdata: TripData
-    //@Binding var item: CheckItem
-    //let itineraryInfo : ItineraryData
     @State var showSheet: Bool = false
     @State var selectedTab: Tabs = .itinerary
     
@@ -28,17 +27,13 @@ struct MainScreen: View {
                 Itinerary(tripdata: tripdata)
                     .tabItem { Label("Itinerary", systemImage: "list.clipboard") }
                     .tag(Tabs.itinerary)
-                Packing()
+                Packing(tripdata: tripdata)
                     .tabItem { Label("Packing List", systemImage:"tshirt") }
                     .tag(Tabs.packing)
                 Budget()
                     .tabItem { Label("Budget", systemImage: "dollarsign.circle") }
                     .tag(Tabs.budget)
             }.navigationTitle(selectedTab.rawValue.capitalized)
-            //Text("Trip Name: \(tripdata.destination)")
-            //.font(.)
-                .fontWeight(.bold)
-            //.padding(.bottom, 100)
         }
     }
 }

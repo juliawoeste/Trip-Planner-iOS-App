@@ -289,18 +289,11 @@ struct Packing: View {
     
     func deleteItems(at offsets: IndexSet) {
         for offset in offsets {
-            let items = packing.filter { item in
-                return filteredItems(for: item.selected).contains(item)
+                let itemToDelete = packing[offset]
+                context.delete(itemToDelete)
             }
-            if offset < items.count {
-                let item = items[offset]
-                if let index = packing.firstIndex(where: { $0.id == item.id }) {
-                    context.delete(packing[index])
-                }
-            }
-        }
     }
-}
+    }
 
 
 

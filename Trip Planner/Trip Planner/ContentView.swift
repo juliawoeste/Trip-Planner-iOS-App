@@ -12,10 +12,8 @@ import SwiftData
 struct ContentView: View {
     //first screen
     @Environment(\.modelContext) var context
-    //let itineraryInfo : ItineraryData
-    //show new trip sheet
     @State var showSheet: Bool = false
-    //gets the trip data data
+    //gets the TripData's data
     @Query private var trips: [TripData]
     
     var body: some View {
@@ -47,8 +45,6 @@ struct ContentView: View {
                         context.delete(trip)
                     }
                 })
-                //adds padding to the items in the list
-                //.padding()
                 
             }
          
@@ -62,7 +58,7 @@ struct ContentView: View {
                 }
                 
             }
-            
+            //when the new trip button is clicked, the NewTrip sheet is shown
             .sheet(isPresented: $showSheet, content: {
                 //new trip screen
                 NewTrip()

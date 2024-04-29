@@ -15,6 +15,7 @@ struct Trip_PlannerApp: App {
         WindowGroup {
             ContentView()
         }
+        //this is for all of the data files for each screen
         .modelContainer(for: [TripData.self, ItineraryData.self, PackingData.self, BudgetData.self])
     }
 }

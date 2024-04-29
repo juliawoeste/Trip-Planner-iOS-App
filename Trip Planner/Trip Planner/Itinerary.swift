@@ -12,6 +12,7 @@ struct Itinerary: View {
     @State var showSheet: Bool = false
     @Environment(\.modelContext) var context
     let tripdata: TripData
+    //gets the data from Itinerary Data file
     @Query private var itinerary: [ItineraryData]
     
     var body: some View {
@@ -21,23 +22,19 @@ struct Itinerary: View {
                     ForEach(itinerary){
                         i in
                         Section{
-                    
-                                ZStack(alignment: .leading) {
-                                    RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color.black, lineWidth: 1)
-                                        //.fill(Color.accentColor)
-                                    HStack {
-                                        Image(systemName:"ticket")
-                                        VStack(alignment: .leading, content: {
-                                            
-                                            
-                                            Text("Event: \(i.eventName) \nDate: \((i.startDate).formatted(date:.long, time:.omitted)) \nTime: \((i.startTime).formatted(date:.omitted, time:.shortened)) - \((i.endTime).formatted(date:.omitted, time:.shortened))")
-                                                .font(.system(size: 15))
-                                                .fontWeight(.light)
-                                        })
-                                        .listRowBackground(Color.white)
-                                    }
+                            ZStack(alignment: .leading) {
+                                RoundedRectangle(cornerRadius: 8)
+                                    .stroke(Color.black, lineWidth: 1)
+                                HStack {
+                                    Image(systemName:"ticket")
+                                    VStack(alignment: .leading, content: {
+                                        Text("Event: \(i.eventName) \nDate: \((i.startDate).formatted(date:.long, time:.omitted)) \nTime: \((i.startTime).formatted(date:.omitted, time:.shortened)) - \((i.endTime).formatted(date:.omitted, time:.shortened))")
+                                            .font(.system(size: 15))
+                                            .fontWeight(.light)
+                                    })
+                                    .listRowBackground(Color.white)
                                 }
+                            }
                             
                         }
                     }
@@ -60,7 +57,7 @@ struct Itinerary: View {
                 Button{
                     self.showSheet = true
                 } label: {
-                    //Image(systemName:"plus")
+                    
                     Text("Add an Event")
                         .fontWeight(.medium)
                         .foregroundColor(.white)
@@ -69,7 +66,6 @@ struct Itinerary: View {
                         .cornerRadius(8)
                 }
                 .padding(.bottom, 660)
-                //.padding(.leading, 120)
                 
                 .foregroundColor(.blue)
                 .cornerRadius(8)

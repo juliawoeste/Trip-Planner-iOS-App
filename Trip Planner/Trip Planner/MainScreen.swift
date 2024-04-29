@@ -15,14 +15,13 @@ enum Tabs: String{
 }
 
 struct MainScreen: View {
-    //@Query private var trips: [TripData]
-    //@State private var selectedTrip = TripData(destination: "Paris", startDate: Date(), endDate: Date())
     let tripdata: TripData
     @State var showSheet: Bool = false
     @State var selectedTab: Tabs = .itinerary
     
     var body: some View {
         VStack{
+            //created the tab view at the bottom on page, allows users to switch between 3 screens
             TabView(selection: $selectedTab){
                 Itinerary(tripdata: tripdata)
                     .tabItem { Label("Itinerary", systemImage: "list.clipboard") }
